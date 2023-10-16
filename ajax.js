@@ -1,4 +1,4 @@
-//________ajax  a jquery na zapis vysledku a dovrseni aktualizace dat__________
+//________ajax  a jquery na zapis vysledku a dovrseni aktualizace dat_______
 $("routeQuery").submit(function(event){
     
     $.ajax({
