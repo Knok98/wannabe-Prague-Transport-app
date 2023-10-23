@@ -1,41 +1,47 @@
-.departure{
+.departure {
     border-radius: 30px;
     background-color: black;
-    color:darkgrey;
-    width:fit-content;
+    color: darkgrey;
+    width: fit-content;
     padding: 10px;
     margin-bottom: 5px;
     margin-top: 0px;
-    position: absolute;
-    cursor:grabbing;
+    cursor: grabbing;
 }
-.departure:hover{
+
+.departure:hover {
     border-color: rebeccapurple;
     border-width: 2px;
 }
-body{
-    background-image:url("images/wal2.jpg");
+
+body {
+    background-image: url("images/wal2.jpg");
     background-repeat: no-repeat;
     background-size: cover;
-    
-    box-shadow: 0px -176px 61px -36px rgba(0,0,0,0.75);
-    width:100%;
+
+    box-shadow: 0px -176px 61px -36px rgba(0, 0, 0, 0.75);
+    width: 100%;
     overflow: hidden;
     margin: 0px;
+    display: flex;
+    flex-wrap: wrap;
 
 }
-.findRoute{
+
+.findRoute {
     display: flex;
     flex-direction: column;
-    align-items:center;
+    align-items: center;
     height: 100px;
 }
-.inputFields{
+
+.inputFields {
     flex-direction: row;
 }
-form{
+
+form {
     background-color: black;
-    color:darkgrey;
+    color: darkgrey;
     padding: 10px;
     margin-bottom: 5px;
     margin-top: 0px;
@@ -43,6 +49,7 @@ form{
     margin-right: 30px;
     margin-bottom: 30px;
 }
-button{
+
+button {
     align-self: center;
 }
