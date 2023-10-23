@@ -5,30 +5,74 @@ console.log("Hello")
 
 
 
-//_____________________checkTime________________________
-let d=(new Date())
-let cTime=d.getHours()+":"+d.getMinutes()+":00";
-var MS_PER_MINUTE = 60000;
-let timeReserve= new Date();
-timeReserve.setMinutes(timeReserve.getMinutes-4);
-console.log(timeReserve);
-let time=document.querySelectorAll(".departurebody");
-
-timeColored(time);
-
-function timeColored(element){
-  console.log(element);
-  if(element.id==cTime){
-  element.style.color = "red";}else if(element.id>=timeReserve&&element.id<cTime){
-    element.style.color = "orange";
-  }else{
-    element.style.color = "green";
-  }
+//_____________________time_functions________________________
+//________aktualni time string
+function currentTime(){
+  let date=new Date();
+  let hours=date.getHours();
+  let minutes=date.getMinutes();
+  let seconds=date.getSeconds();
+  let cTime=`${hours}:${minutes}:${seconds}`;
+  if(minutes<10){cTime=`${hours}:0${minutes}:${seconds}`};
+  return cTime;
 }
+
+//____________časova rezerva
+function timeReserve(res){
+  d=new Date();
+  cH=d.getHours();
+  cM=d.getMinutes()+res;
+  if(cM>60){cM-=60;cH+=1;};
+  if(cM<10){return `${cH}:0${cM}:00`;};
+  return `${cH}:${cM}:00`;
+
+}
+
+//________zabarvení____________________
+
+//__barva podle času_______
+function colorTime(index,color){
+  $(`#${index}`).find('p').eq(0).css({'color':color})
+}
+
+//________departure n queque řadič_______
+function checkQueque (element){
+  console.log('fce bezi');
+  let cTime=currentTime();
+  let reserveT=timeReserve(10);
+
+  element.forEach(function callback(value, index) {
+      console.log(`${index}: ${value}`);
+    
+      switch(true){
+          case (value>cTime):
+              if(value>reserveT){console.log("green");color.time(index,"green");}else{
+                console.log("red");
+                colorTime(index,"red");
+              }
+              break;
+          case (value<=cTime):
+            console.log("refresh time info");
+            formRefresh(index);
+            break;
+          default:
+             console.log("refresh nefunguje, nebo nejsou žádná data")
+      }
+  });
+  }
+//_________znovu odeslani formu________________
+function formRefresh(id){
+let spoj=(document.getElementById(id).value).split();
+document.getElementsByName('routeF').value=spoj[0];
+document.getElementsByName('routeT').value=spoj[1];
+document.getElementsByName('idDiv').value=id;
+document.getElementById('send').submit();
+}
+
 //____________________drag___________________________________________
 
 //dragElement(document.getElementById("departure"));
-
+/*
 function dragElement(elmnt) {
   var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
   if (document.getElementById(elmnt.id + "body")) {
@@ -69,4 +113,5 @@ function dragElement(elmnt) {
     document.onmousemove = null;
   }
 }
+*/
 //______________________________________________________________________

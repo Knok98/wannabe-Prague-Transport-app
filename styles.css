@@ -6,7 +6,7 @@
     padding: 10px;
     margin-bottom: 5px;
     margin-top: 0px;
-    /*position: absolute;*/
+    position: absolute;
     cursor:grabbing;
 }
 .departure:hover{
@@ -22,6 +22,7 @@ body{
     width:100%;
     overflow: hidden;
     margin: 0px;
+
 }
 .findRoute{
     display: flex;
@@ -39,6 +40,8 @@ form{
     margin-bottom: 5px;
     margin-top: 0px;
     height: 200px;
+    margin-right: 30px;
+    margin-bottom: 30px;
 }
 button{
     align-self: center;
