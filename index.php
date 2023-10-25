@@ -4,11 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="styles.css">
-    <script src=https://code.jquery.com/jquery-latest.min.js></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-
+    <link rel="stylesheet" href="css/styles.css">
     <title>Kdy pojede nejblizsi spoj</title>
 </head>
 
@@ -25,7 +21,9 @@
             <button class="submitQ" type="submit" id="send">V kolik na zastávce ?</button>
         </form>
     </div>
-    <script src="ajax.js"></script>
+    <script src=https://code.jquery.com/jquery-latest.min.js></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="js/ajax.js"></script>
 
 </body>
 
