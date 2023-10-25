@@ -1,14 +1,10 @@
 <?php
 
-require "configFile.php";
+declare(strict_types=1);
 
+namespace Idos;
 
-
-
-
-
-
-class SPOJ
+class Spoj
 {
     private static $idSpojeCounter;
     public $IdSpoje;
