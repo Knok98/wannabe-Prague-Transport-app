@@ -7,7 +7,7 @@ const vole = new Audio("./images/jede_vlak.mp3");
 $(document).ready(function () {
 
 
-  $(document).on("submit", "#routeQuery", function (event) {
+  $("#routeQuery").on("submit",function (event) {
     event.preventDefault();
     vole.play();
     $.ajax({
@@ -26,6 +26,7 @@ $(document).ready(function () {
       }
       queque[data[1]] = data[2] + ":00";
       let target = $('#' + data[1])
+      target.empty
       let val = "";
 
       for (let i = 2; i < data.length; i++) {
@@ -33,7 +34,9 @@ $(document).ready(function () {
       }
       $(target).append(val);
 
-      setTimeout(checkQueque(queque), 15000);
+
+      queque.toSorted();
+      console.log(queque);
 
 
       //______________________________________________konec sucess ajax
@@ -42,8 +45,7 @@ $(document).ready(function () {
 
 
 
-    queque.toSorted();
-    console.log(queque);
+
 
 
 
@@ -51,6 +53,7 @@ $(document).ready(function () {
 });
 
 console.log("Hello")
+setInterval(function () { if ($('.departure')) checkQueque(queque) }, 4000);
 
 
 
@@ -90,36 +93,33 @@ function colorTime(index, color) {
 function checkQueque(element) {
   console.log('fce bezi');
   let cTime = currentTime();
-  let reserveT = timeReserve(1);
+  let reserveT = timeReserve(4);
 
   element.forEach(function callback(value, index) {
     console.log(`${index}: ${value}`);
 
-    switch (true) {
-      case (value > cTime):
-        if (value > reserveT) { console.log("green"); colorTime(index, "green"); } else {
-          console.log("red");
-          colorTime(index, "red");
-        }
-        break;
-      case (value <= cTime):
-        console.log("refresh time info");
-        console.log(index);
-        formRefresh(index);
-        break;
-      default:
-        console.log("refresh nefunguje, nebo nejsou žádná data")
+
+    if (value > cTime) {
+      if (value > reserveT) { console.log("green"); colorTime(index, "green"); } else {
+        console.log("red");
+        colorTime(index, "red");
+      }
+    } else {
+      console.log("refresh time info");
+      console.log(index);
+      formRefresh(index);
     }
   });
 }
 //_________znovu odeslani formu________________
 function formRefresh(id) {
-  let spoj = $('#'+id).attr('value');
-  console.log('toto by mel byt string'+spoj);
-   spoj = spoj.split(",");
+  let spoj = $('#' + id).attr('value');
+  console.log('toto by mel byt string' + spoj);
+  spoj = spoj.split(",");
   console.log(spoj[0]);
   console.log(spoj[1]);
   document.getElementsByName('routeF').value = spoj[0];
+  
   document.getElementsByName('routeT').value = spoj[1];
   document.getElementsByName('idDiv').value = id;
   document.getElementById('routeQuery').submit();
