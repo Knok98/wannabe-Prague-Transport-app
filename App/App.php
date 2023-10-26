@@ -41,6 +41,7 @@ class App
             }
 
             $loader = new ControllerLoader($request->controller, $request->action, $request->params);
+            $loader->setContainer($this->container);
             $loader->loadController();
 
         } catch (Exception $e) {
