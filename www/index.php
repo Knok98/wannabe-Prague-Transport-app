@@ -1,28 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/styles.css">
-    <title>Kdy pojede nejblizsi spoj</title>
-</head>
+require __DIR__ . "/../vendor/autoload.php";
 
-<body>
-    <div class="findRoute">
-        <form action="../App/processQuery.php" method="post" id="routeQuery">
-            <div class="inputFields">
-                <input type="text" placeholder="odkud" class="route from" name="routeF">
-                <input type="text" placeholder="kam" class="route to" name="routeT">
-                <input type="number" name="idDiv" hidden>
-            </div>
-            <button class="submitQ" type="submit" id="send">V kolik na zastávce ?</button>
-        </form>
-    </div>
-    <script src=https://code.jquery.com/jquery-latest.min.js></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-    <script src="js/ajax.js"></script>
-
-</body>
-
-</html>
+try {
+    $dic = new \Idos\DIContainer();
+    $app = new \Idos\App($dic);
+    $app->boot();
+} catch (Exception $e) {
+    print $e->getMessage();
+}
