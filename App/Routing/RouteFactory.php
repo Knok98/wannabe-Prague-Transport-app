@@ -11,6 +11,7 @@ class RouteFactory
         // zde se registrují nové routy
         return new RouteSet([
             new Route('/', 'Home', 'index'),
+            new Route('/submit', 'Home', 'submitForm', [Router::METHOD_POST]),
         ]);
     }
 }

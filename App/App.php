@@ -32,6 +32,14 @@ class App
                 Request::getRequestMethod()
             );
 
+            if (!$request) {
+                header("HTTP/1.1 404 Not Found", true, 404);
+                echo <<<HTML
+                HTTP 404 Page not found
+                HTML;
+                exit();
+            }
+
             $loader = new ControllerLoader($request->controller, $request->action, $request->params);
             $loader->loadController();
 
