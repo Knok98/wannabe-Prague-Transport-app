@@ -9,10 +9,8 @@
 </head>
 
 <body>
-    <?php
-    ?>
     <div class="findRoute">
-        <form action="App/processQuery.php" method="post" id="routeQuery">
+        <form action="../App/processQuery.php" method="post" id="routeQuery">
             <div class="inputFields">
                 <input type="text" placeholder="odkud" class="route from" name="routeF">
                 <input type="text" placeholder="kam" class="route to" name="routeT">
