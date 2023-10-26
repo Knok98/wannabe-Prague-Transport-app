@@ -1,0 +1,54 @@
+.departure {
+    border-radius: 30px;
+    background-color: black;
+    color: darkgrey;
+    width: fit-content;
+    padding: 10px;
+    margin-bottom: 5px;
+    margin-top: 0;
+    cursor: grabbing;
+}
+
+.departure:hover {
+    border-color: rebeccapurple;
+    border-width: 2px;
+}
+
+body {
+    background-image: url("../images/wal2.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    box-shadow: 0 -176px 61px -36px rgba(0, 0, 0, 0.75);
+    width: 100%;
+    overflow: hidden;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+
+}
+
+.findRoute {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100px;
+}
+
+.inputFields {
+    flex-direction: row;
+}
+
+form {
+    background-color: black;
+    color: darkgrey;
+    padding: 10px;
+    margin-top: 0;
+    height: 200px;
+    margin-right: 30px;
+    margin-bottom: 30px;
+}
+
+button {
+    align-self: center;
+}
