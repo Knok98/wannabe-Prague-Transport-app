@@ -22,4 +22,5 @@ class Request
     public static function getRequestMethod(): string {
         return $_SERVER['REQUEST_METHOD'];
     }
+
 }

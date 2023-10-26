@@ -9,4 +9,8 @@ class HomeController extends BaseController
     public function index(): void {
         $this->view('form.view', ['html_title' => 'Index']);
     }
+
+    public function submitForm(): void {
+        // zpracování formuláře
+    }
 }
