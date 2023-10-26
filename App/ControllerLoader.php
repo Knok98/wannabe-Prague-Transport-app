@@ -11,11 +11,15 @@ class ControllerLoader
 {
     private const CONTROLLERS_FOLDER = __DIR__ . "/Controllers";
 
+    private ?DIContainer $container = null;
+
     public function __construct(
         private readonly string $controllerName,
         private readonly string $methodName,
         private readonly array  $params
     ) {}
+
+
 
     /**
      * @throws Exception
@@ -27,7 +31,15 @@ class ControllerLoader
         }
 
         $controller = "\\Idos\\Controllers\\{$this->controllerName}Controller";
-        $controller = new $controller();
+        $controller = new $controller(
+            $this->container->getSessionManager()
+        );
+
         $controller->{$this->methodName}(...$this->params);
+    }
+
+    public function setContainer(DIContainer $container): void
+    {
+        $this->container = $container;
     }
 }
