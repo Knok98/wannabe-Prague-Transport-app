@@ -27,6 +27,7 @@ class App
     public function boot(): void {
 
         try {
+
             $request = $this->router->match(
                 Request::getRequestUri(),
                 Request::getRequestMethod()
