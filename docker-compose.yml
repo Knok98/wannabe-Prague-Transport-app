@@ -13,3 +13,15 @@ services:
         restart: always
         volumes:
             - ".:/var/www/html"
+
+    mysqldb:
+        image: jakubboucek/lamp-devstack-mysql
+        environment:
+            MARIADB_DATABASE: idos
+            MARIADB_ROOT_PASSWORD: devstack
+            TZ: Europe/Prague
+        ports:
+            - "127.0.0.1:33060:3306"
+        restart: always
+        volumes:
+            - "./.docker/mysql/data:/var/lib/mysql"

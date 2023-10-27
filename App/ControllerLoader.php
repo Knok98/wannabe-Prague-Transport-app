@@ -6,6 +6,7 @@ namespace Idos;
 
 use Exception;
 use Idos\Controllers\BaseController;
+use Idos\Http\HttpRequest;
 
 class ControllerLoader
 {
@@ -13,13 +14,15 @@ class ControllerLoader
 
     private ?DIContainer $container = null;
 
+    private HttpRequest $request;
+
     public function __construct(
         private readonly string $controllerName,
         private readonly string $methodName,
         private readonly array  $params
-    ) {}
-
-
+    ) {
+        $this->request = new HttpRequest();
+    }
 
     /**
      * @throws Exception
@@ -32,10 +35,11 @@ class ControllerLoader
 
         $controller = "\\Idos\\Controllers\\{$this->controllerName}Controller";
         $controller = new $controller(
+            $this->container->getDb(),
             $this->container->getSessionManager()
         );
 
-        $controller->{$this->methodName}(...$this->params);
+        $controller->{$this->methodName}($this->request, ...$this->params);
     }
 
     public function setContainer(DIContainer $container): void

@@ -1,34 +1,32 @@
 {
-    "name": "knok98/idos",
-    "description": "IDOS App",
-    "license": "proprietary",
-    "type": "project",
-    "authors": [
-        {
-            "name": "Petr Máša",
-            "email": "petr.masa30@gmail.com",
-            "role": "owner, developer"
-        },
-        {
-            "name": "Petr Fořt",
-            "email": "p.fort1990@gmail.com",
-            "role": "developer"
-        }
-    ],
-    "require": {
-        "php": "~8.1.0 || ~8.2.0"
-    },
-
-    "require-dev": {},
-
-    "autoload": {
-        "psr-4": {
-            "Idos\\": "App/"
-        }
-    },
-
-    "config": {
-        "optimize-autoloader": true,
-        "sort-packages": true
-    }
+  "name": "knok98/idos",
+  "description": "IDOS App",
+  "license": "proprietary",
+  "type": "project",
+  "authors": [
+	{
+	  "name": "Petr Máša",
+	  "email": "petr.masa30@gmail.com",
+	  "role": "owner, developer"
+	},
+	{
+	  "name": "Petr Fořt",
+	  "email": "p.fort1990@gmail.com",
+	  "role": "developer"
+	}
+  ],
+  "require": {
+	"php": "~8.1.0 || ~8.2.0",
+	"ext-pdo": "*"
+  },
+  "require-dev": {},
+  "autoload": {
+	"psr-4": {
+	  "Idos\\": "App/"
+	}
+  },
+  "config": {
+	"optimize-autoloader": true,
+	"sort-packages": true
+  }
 }
