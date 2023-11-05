@@ -2,12 +2,20 @@
     border-radius: 30px;
     background-color: black;
     color: darkgrey;
-    width: fit-content;
     padding: 10px;
     margin-bottom: 5px;
     margin-top: 0px;
-    cursor: grabbing;
 }
+
+.moveable {
+    position: absolute;
+    cursor: grabbing;
+    transform: translate(-50%, -50%);
+}
+
+/*.moveable, .moveable * {
+    user-select: none;
+}*/
 
 .departure:hover {
     border-color: rebeccapurple;
@@ -39,7 +47,7 @@ body {
     flex-direction: row;
 }
 
-form {
+.inputFields {
     background-color: black;
     color: darkgrey;
     padding: 10px;
